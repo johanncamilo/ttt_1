@@ -1,0 +1,14 @@
+<div *ngFor="let row of [0, 1, 2]" class="row">
+  <app-square *ngFor="let col of [0, 1, 2]" 
+                [state]="squares[col+row*3]" 
+                (click)="makeAMove(col+row*3)"></app-square>
+</div>
+
+<div class="row">
+    <div class="status">
+        <strong>
+            {{ status }}
+        </strong>
+    </div>
+    <button (click)="newGame()" >New Game</button>
+</div>

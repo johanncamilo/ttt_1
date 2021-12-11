@@ -1,0 +1,8 @@
+:host {
+    width: 45px;
+    height: 45px;
+    border: solid 1px grey;
+    float: left;
+    font-size: 36px;
+    text-align: center;
+}
