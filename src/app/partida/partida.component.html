@@ -4,9 +4,9 @@
     <h3>
       {{ status }}
     </h3>
-    <form>
+    <form class="form-group">
         <input type="text" name="nombreJugador" id="nombreJugador" [value]="player">
-        <button>Editar nombre</button>
+        <button class="btn btn-primary" (click)="update($event)">Editar nombre</button>
     </form>
   </div>
   <br>

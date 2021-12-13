@@ -17,6 +17,7 @@ export class PartidaComponent implements OnInit {
   @Input() winner!:  any
 
   @Output() onNewGame = new EventEmitter()
+  @Output() onUpd = new EventEmitter()
   
   players = this._partidaService.players
   p1!: string
@@ -44,6 +45,10 @@ export class PartidaComponent implements OnInit {
 
   join () {
     this.unirse = !this.unirse
+  }
+
+  update(event: any) {
+    alert(event)
   }
 
 }

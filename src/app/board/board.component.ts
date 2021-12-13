@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class BoardComponent implements OnInit {
 
   squares: string[] = Array(9).fill(null)
-  player:  string = 'Jugador1'
+  p1: string = 'Jugador_1'
+  p2: string = 'Jugador_2'
+  
+  player:  string = this.p1
   symbol:  string = 'X'
   winner:  any = null
 
@@ -44,7 +47,7 @@ export class BoardComponent implements OnInit {
           console.log(this.squares);
         }
         this.symbol = this.symbol === 'X' ? 'O' : 'X'
-        this.player = this.player === 'Jugador1' ? 'Jugador2' : 'Jugador1'
+        this.player = this.player === this.p1 ? this.p2 : this.p1
     }
   }
 
@@ -74,6 +77,9 @@ export class BoardComponent implements OnInit {
     this.symbol = event.symbol
     this.player = event.symbol == 'X' ? 'Jugador1' : 'Jugador2'
     this.winner = null
+  }
+  update (event: any) {
+
   }
 
   join () {
