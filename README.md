@@ -1,4 +1,11 @@
-# QuickDirtyTtt
+# Pasos TicTacToe
+
+1. correr `ng build`
+
+2. correr `firebase init`
+
+3. correr `firebase deploy`
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 
