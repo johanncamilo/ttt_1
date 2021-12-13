@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ttt-angular": {
+      "hosting": {
+        "quickDirty-ttt": [
+          "ttt-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ttt-angular"
+  }
+}

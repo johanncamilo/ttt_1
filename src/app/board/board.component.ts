@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class BoardComponent implements OnInit {
 
   squares: string[] = Array(9).fill(null)
-  player:  string = 'X'
+  player:  string = 'Jugador1'
+  symbol:  string = 'X'
   winner:  any = null
 
   // * posibles combinaciones para ganar
@@ -18,10 +19,7 @@ export class BoardComponent implements OnInit {
     [0, 4, 8], [2, 4, 6]
   ]
   
-  get status(): string {
-    return this.winner ? `Winner: ${this.winner}` : `Player: ${this.player}`
-  }
-
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -31,18 +29,29 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  /**
+   * función hace el movimiento: recibe la coordenada como parametro, luego de hacer validaciones
+   * escribe dentro del array squares y los cambios se ven reflejados inmediatamente en la vista
+   * siempre llama a mionningMove() para validar si hay ganador
+   * @param place valor que indica el valor en el array a modificar
+   */
   makeAMove(place: number) {
     if(!this.winner && !this.squares[place]) {
-        this.squares[place] = this.player
+        this.squares[place] = this.symbol
 
         if(this.winningMove()) { 
-          this.winner = this.player 
+          this.winner = this.player
           console.log(this.squares);
         }
-        this.player = this.player === 'X' ? 'O' : 'X'
+        this.symbol = this.symbol === 'X' ? 'O' : 'X'
+        this.player = this.player === 'Jugador1' ? 'Jugador2' : 'Jugador1'
     }
   }
 
+  /**
+   * 
+   * @returns boolean: valida si hay ganador o no iterando las posibles combinaciones
+   */
   winningMove(): boolean {
     
     for (let line of this.lines) {
@@ -55,9 +64,19 @@ export class BoardComponent implements OnInit {
     return false
   }
 
-  newGame () {
+  /**
+   * Setea de nuevo las propiedades con sus valores default
+   */
+  newGame (event: any) {
+    // console.log(event.symbol);
+    
     this.squares = Array(9).fill(null)
-    this.player = 'X'
+    this.symbol = event.symbol
+    this.player = event.symbol == 'X' ? 'Jugador1' : 'Jugador2'
     this.winner = null
+  }
+
+  join () {
+    console.log('te has unido a una nueva partida');
   }
 }

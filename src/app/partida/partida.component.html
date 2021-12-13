@@ -1,0 +1,29 @@
+<div class="row">
+    <h2>Id partida: {{ idPartida }}</h2>
+  <div class="status">
+    <h3>
+      {{ status }}
+    </h3>
+    <form>
+        <input type="text" name="nombreJugador" id="nombreJugador" [value]="player">
+        <button>Editar nombre</button>
+    </form>
+  </div>
+  <br>
+  <button (click)="nuGame($event)">Nueva Partida</button>
+  <button (click)="join()">Unirse a Partida</button>
+
+  <hr>
+  <form *ngIf="unirse">
+      <input type="text" name="idPartida" id="idPartida" value="Pendiente por implementar sorry :'(" readonly>
+      <button disabled>Enviar</button>
+  </form>
+  <div>
+    <h3>Jugadores:</h3>
+    <ul>
+      <li class="text" *ngFor="let player of players | async">
+        {{player.name}}
+      </li>
+    </ul>
+  </div>
+</div>
